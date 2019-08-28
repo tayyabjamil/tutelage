@@ -16,14 +16,15 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'tutelage'], function () use ($router) {
   $router->get('students',  ['uses' => 'StudentsController@showAllStudents']);
-
-  $router->get('students/{id}', ['uses' => 'StudentsController@showOneStudent']);
-
-  $router->post('students', ['uses' => 'StudentsController@create']);
-
-  $router->delete('students/{id}', ['uses' => 'StudentsController@delete']);
-
-  $router->put('students/{id}', ['uses' => 'StudentsController@update']);
+  $router->get('teachers',  ['uses' => 'TeachersController@showAllTeachers']);
   $router->get('queries',  ['uses' => 'QueryController@showAllQuery']);
+  $router->get('removeStudent/{id}', ['uses' => 'StudentsController@delete']);
+  $router->get('students/{id}', ['uses' => 'StudentsController@showOneStudent']);
+  $router->put('updateStudent/{id}', ['uses' => 'StudentsController@update']);
 
+  //Route::delete('studentsdel/{id}', 'StudentsController@delete');
+  // $router->post('students', ['uses' => 'StudentsController@create']);
+  // $router->delete('students/{id}', ['uses' => 'StudentsController@delete']);
+  // $router->put('students/{id}', ['uses' => 'StudentsController@update']);
+  
 });

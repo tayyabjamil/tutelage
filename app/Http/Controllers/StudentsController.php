@@ -17,7 +17,30 @@ class StudentsController extends Controller
     {
         return response()->json(Students::find($id));
     }
+    public function delete($id)
+    {
+        Students::findOrFail($id)->delete();
+        return response('Deleted Successfully', 200);
+    }
 
+    public function update($id, Request $request)
+    {
+        $student = Students::findOrFail($id);
+        $student->update($request->all());
+
+        return response()->json($student, 200);
+    }
+    // public function deletebyid($id)
+    // {
+    //     Students::findOrFail($id)->delete();
+    //     return response('Deleted Successfully', 200);
+    // }
+    // public function delete(Student $student)
+    // {
+    //     $student->delete();
+
+    //     return response()->json(null, 204);
+    // }
     public function create(Request $request)
     {
         $student = Students::create($request->all());
@@ -25,17 +48,5 @@ class StudentsController extends Controller
         return response()->json($student, 201);
     }
 
-    // public function update($id, Request $request)
-    // {
-    //     $author = Author::findOrFail($id);
-    //     $author->update($request->all());
-
-    //     return response()->json($author, 200);
-    // }
-
-    public function delete($id)
-    {
-        Students::findOrFail($id)->delete();
-        return response('Deleted Successfully', 200);
-    }
+  
 }

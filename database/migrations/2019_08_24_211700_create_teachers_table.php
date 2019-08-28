@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQueriesTable extends Migration
+class CreateTeachersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,18 @@ class CreateQueriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('queries', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('username');
-            $table->string('username');
-            $table->string('username');
-            $table->string('username');
-            $table->string('username');
+            $table->string('email');
+            $table->string('password');
+            $table->string('university');
+            $table->string('deparment');
+            $table->string('semester');
+            $table->string('subjects');
+            
             $table->timestamps();
         });
     }
@@ -31,6 +36,6 @@ class CreateQueriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('queries');
+        Schema::dropIfExists('teachers');
     }
 }

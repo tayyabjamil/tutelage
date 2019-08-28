@@ -13,7 +13,12 @@ class Queries extends Model
      * @var array
      */
     protected $fillable = [
-        'query1','query2', 'query3','query4','query5','query6',
+          'id',
+          'Title',
+          'Description',
+          'estimate',
+          'startDate',
+          'endDate',
     ];
 
     /**
@@ -22,6 +27,6 @@ class Queries extends Model
      * @var array
      */
     protected $hidden = [
-        'password'
+       
     ];
 }
