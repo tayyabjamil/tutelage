@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQueries extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateQueries extends Migration
      */
     public function up()
     {
-        Schema::create('queries', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Title');
-            $table->string('Description');
-            $table->string('Startdate');
-            $table->string('End date');
-            $table->string('Estimate Amount');
+        Schema::create('ratings', function (Blueprint $table) {
+            $table->integer('id');
+            $table->integer('profile_id')->unsigned();
+            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->string('password');
+            $table->primary('id');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateQueries extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('queries');
+        Schema::dropIfExists('_ratings');
     }
 }
