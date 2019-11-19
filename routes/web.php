@@ -13,7 +13,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-
   $router->group(['prefix' => 'api'], function () use ($router) {
   $router->get('getProfile',  ['uses' => 'ProfilesController@showAllProfile']);
   $router->post('createProfile',  ['uses' => 'ProfilesController@create']);
