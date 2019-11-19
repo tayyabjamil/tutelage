@@ -13,13 +13,17 @@ class Queries extends Model
      * @var array
      */
     protected $fillable = [
-          'id',
-          'Title',
-          'Description',
-          'estimate',
-          'startDate',
-          'endDate',
-    ];
+          
+          'profile_id',
+          'title',
+          'type',
+          'toDate',
+          'fromDate',
+          'estimateAmount',
+          'adress',
+          'description',
+    
+        ];
 
     /**
      * The attributes excluded from the model's JSON form.
