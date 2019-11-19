@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Queries extends Model
+class Teachers extends Model
 {
 
     /**
@@ -13,16 +13,9 @@ class Queries extends Model
      * @var array
      */
     protected $fillable = [
-          'id',
-          'profile_id',
-          'title',
-          'type',
-          'toDate',
-          'fromDate',
-          'estimateAmount',
-          'adress',
-          'description',
-          'people',    ];
+        'id','first_name', 'last_name', 'username', 'email', 'university',
+         'deparment', 'semester','courses'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -30,6 +23,6 @@ class Queries extends Model
      * @var array
      */
     protected $hidden = [
-       
+        ''
     ];
 }

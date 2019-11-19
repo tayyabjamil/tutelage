@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Courses extends Model
 {
 
     /**
@@ -13,7 +13,7 @@ class Profile extends Model
      * @var array
      */
     protected $fillable = [ 
-        'first_name', 'last_name','user_name','contact','email', 'password','university', 'department', 'semester','adress','userType'
+       'id', 'profile_id','name', 'duration', 'details' 
     ];
 
     /**
@@ -22,6 +22,6 @@ class Profile extends Model
      * @var array
      */
     protected $hidden = [
-        'password'
+      
     ];
 }

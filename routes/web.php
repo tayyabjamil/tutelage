@@ -10,23 +10,24 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->group(['prefix' => 'api'], function () use ($router) {
 
-  $router->group(['prefix' => 'api'], function () use ($router) {
-  $router->post('getUserProfile',  ['uses' => 'ProfilesController@getUserProfile']);
-  $router->post('createProfile',  ['uses' => 'ProfilesController@create']);
-  $router->post('createQueries',  ['uses' => 'QueryController@create']);
-  $router->get('getUserQueries',  ['uses' => 'QueryController@getUserQueries']);
-  $router->get('getPeopleQueries',  ['uses' => 'QueryController@getPeopleQueries']);
-  
-  $router->get('ratings',  ['uses' => 'RatingsController@showAllRating']);
-  $router->post('login',  ['uses' => 'LoginController@login']);
-  
-  //Route::delete('studentsdel/{id}', 'StudentsController@delete');
-  // $router->post('students', ['uses' => 'StudentsController@create']);
-  // $router->delete('students/{id}', ['uses' => 'StudentsController@delete']);
-  // $router->put('students/{id}', ['uses' => 'StudentsController@update']);
-  
+$router->post('createProfile',  ['uses' => 'ProfilesController@createProfile']);
+$router->post('createCourses',  ['uses' => 'CoursesController@createCourses']);
+$router->post('createBidding',  ['uses' => 'BiddingsController@createBidding']);
+$router->post('createQuery',  ['uses' => 'QueryController@createQuery']);
+$router->post('login',  ['uses' => 'LoginController@login']);
+
+
+$router->get('getProfile',  ['uses' => 'ProfilesController@showAllProfile']);
+$router->get('getUserProfile',  ['uses' => 'ProfilesController@getUserProfile']);
+
+$router->get('getPeopleQueries',  ['uses' => 'QueryController@getPeopleQueries']);
+$router->get('getUserQueries',  ['uses' => 'QueryController@getUserQueries']);
+
+$router->get('getBiddingProfiles',  ['uses' => 'BiddingsController@getBiddingsProfiles']);
+$router->get('getBiddingResponces',  ['uses' => 'BiddingsController@getBiddingsResponces']);
+$router->get('getUserCourses',  ['uses' => 'CoursesController@getUserCourses']);
+
+
 });

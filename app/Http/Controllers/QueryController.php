@@ -2,34 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Queries;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;  
+
 class QueryController extends Controller
 {
 
     public function getPeopleQueries()
     {
-        return response()->json(Queries::all());
+        return response()->json(queries::all());
     }
- 
-    public function create(Request $request)
-    {
-        $query = Queries::create($request->all());
-        return response()->json($query, 201);
-    }   
-    // public function getQueries()
-    // {
-    //     return $this->belongsto('Queries'); //->where('id', '1')->get();;
-    // }
     public function getUserQueries(Request $request)
     {
-        $queries = DB::table('Queries')
+        $userQueries = DB::table('queries')
         ->where('profile_id',  $request->input('id'))
         ->get();
 
-        return response()->json($queries, 200); 
+        return response()->json($userQueries, 200); 
+    
     }
-   
+
+    public function createQuery(Request $request)
+    {
+        $query = Queries::create($request->all());
+        return response()->json($query, 201);
+    }
+
 }

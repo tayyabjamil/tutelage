@@ -2,36 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Profile;
-use Illuminate\Support\Facades\DB; 
+use App\profiles;
 use Illuminate\Http\Request;
-
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;  
 
 class ProfilesController extends Controller
 {
-    // public function showAllProfile()
-    // {
-    //     return response()->json(Profile::all());
-    // }
-    public function showAllQueries()
+    public function createProfile(Request $request)
     {
-        return response()->json(Queries::all());
-    }
-    
-    public function create(Request $request)
-    {
-        $profile = Profile::create($request->all());
-        return response()->json($profile, 201);
+        $query = Profiles::create($request->all());
+        return response()->json($query, 201);
     }
 
     public function getUserProfile(Request $request)
     {
-        $Profile = DB::table('Profiles')
+        $userProfile = DB::table('profiles')
         ->where('id',  $request->input('id'))
         ->get();
-        return response()->json($Profile, 200); 
-    }
+
+        return response()->json($userProfile, 200); 
     
-   
+    }
+
 }

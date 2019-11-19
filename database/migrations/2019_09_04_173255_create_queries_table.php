@@ -14,18 +14,21 @@ class CreateQueriesTable extends Migration
     public function up()
     {
         Schema::create('queries', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
-            $table->integer('profile_id');
+            $table->bigIncrements('id'); 
+            $table->bigInteger('profile_id')->unsigned()->index();
+            $table->foreign('profile_id')->references('id')->on('profiles');
             $table->string('title');
             $table->string('type');
+            
             $table->string('toDate');
             $table->string('fromDate');
             $table->string('estimateAmount');
             $table->string('adress');
+            
             $table->string('description');
             
-            // $table->primary('id');
-            // $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->string('people');
+            
             $table->timestamps();
         });
     }
