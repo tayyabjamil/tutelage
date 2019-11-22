@@ -15,12 +15,12 @@ class Queries extends Model
     protected $fillable = [
           'id',
           'profile_id',
+          
           'title',
           'type',
           'toDate',
           'fromDate',
           'estimateAmount',
-          'adress',
           'description',
           'people',    ];
 

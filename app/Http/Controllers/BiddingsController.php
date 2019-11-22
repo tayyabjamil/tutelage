@@ -9,7 +9,7 @@ class BiddingsController extends Controller
 {
 
 
-    public function createBidding(Request $request)
+    public function createBiddings(Request $request)
     {
         $bids = Biddings::create($request->all());
         return response()->json($bids, 201);

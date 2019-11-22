@@ -23,7 +23,6 @@ class CreateQueriesTable extends Migration
             $table->string('toDate');
             $table->string('fromDate');
             $table->string('estimateAmount');
-            $table->string('adress');
             
             $table->string('description');
             

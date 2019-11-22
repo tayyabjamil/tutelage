@@ -14,7 +14,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
 $router->post('createProfile',  ['uses' => 'ProfilesController@createProfile']);
 $router->post('createCourses',  ['uses' => 'CoursesController@createCourses']);
-$router->post('createBidding',  ['uses' => 'BiddingsController@createBidding']);
+$router->post('createBiddings',  ['uses' => 'BiddingsController@createBiddings']);
 $router->post('createQuery',  ['uses' => 'QueryController@createQuery']);
 $router->post('login',  ['uses' => 'LoginController@login']);
 

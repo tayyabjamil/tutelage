@@ -19,6 +19,8 @@ class Courses extends Migration
             $table->string('name');
             $table->string('duration');
             $table->string('details');
+            $table->string('modules');
+            
             $table->foreign('profile_id')->references('id')->on('profiles');
             $table->timestamps();
         });
